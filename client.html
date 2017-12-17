@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vn">
+<head>
+	<meta charset="UTF-8">
+	<title>Client Video</title>
+</head>
+<body>
+	<h1>Client Video</h1>
+	<p>Trang nhận được trong thời gian luồng trực tuyến của người dùng</p>
+	<img id="streaming">
+	<script src="socket.io/socket.io.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		var socket=io.connect("/");
+
+		d="Client";
+		socket.emit("Device",d)
+
+			socket.on('play stream', function (image){
+			$("#stream").html("<img src='"+image+"'>");
+		});
+	</script>
+
+<div id="time">
+	
+</div>
+
+<div id="stream">
+</div>
+
+
+</body>
+</html>

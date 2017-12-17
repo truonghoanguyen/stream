@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
    })
 
 
-//mảng chưa client
+//mảng chứa client
   arr=[];
 
 
@@ -25,7 +25,7 @@ io.on('connection', function(socket){
   //kết nối mới
   console.log("New connection: "+socket.id);
 
-    //ngăt kết nối
+    //ngắt kết nối
     socket.on("disconnect",function(){
     console.log("disconnect: "+socket.id);
     })
@@ -35,14 +35,14 @@ io.on('connection', function(socket){
     console.log("Nhan Du lieu")
     console.log(data);
 
-    //Client ket noi
+    //Client kết nối
     if(data=="Client") {
       console.log("Ket noi moi tu client");
       arr=[];
       arr.push(socket.id);
       console.log(arr);
     }
-    //Server ket noi
+    //Server kết nối
     else if(data=="Server"){
       console.log("Ket noi moi tu Server");
     }
@@ -57,4 +57,3 @@ io.on('connection', function(socket){
 
 
    })
-//hú thái server chạy là localhost:3000/streaming nữa
